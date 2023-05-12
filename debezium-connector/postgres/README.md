@@ -88,7 +88,7 @@ export connector_config_file=$source_root/debezium-connector/postgres/samples/de
 ```
 
 
-# PostGreSQL Debezium Plugin with Secrets Manager Integration , AVRO Output
+# PostgreSQL Debezium Plugin with Secrets Manager Integration , AVRO Output
 ## Create the custom plugin with Confluent Schema Registry
 1. For AVRO output you need additional jar for AVRO connector. 
 2. Use the instructions below to create the package. 
