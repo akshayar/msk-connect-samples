@@ -41,8 +41,8 @@ export custom_plugin_arn=$(aws kafkaconnect create-custom-plugin --cli-input-jso
 echo "Custom plugin ARN: ${custom_plugin_arn}"
 ```
 ## Create Worker Configuration
-1. Refer the worker configuraiton template at [Worker onfiguraiton Template](postgres/debezium-connector/templates/worker-configuration-secret-manager.properties) which showcases secret manager config provider. Apart form that it uses default schema registery and AVRO converte which could be overwritten by connectors. 
-2. The worker configuration template at [Another worker configuration template](postgres/debezium-connector/templates/worker-configuration.properties) shows how SSM can be used to read properties.
+1. Refer the worker configuraiton template at [Worker onfiguraiton Template](templates/worker-configuration-secret-manager.properties) which showcases secret manager config provider. Apart form that it uses default schema registery and AVRO converte which could be overwritten by connectors. 
+2. The worker configuration template at [Another worker configuration template](templates/worker-configuration.properties) shows how SSM can be used to read properties.
 3. Use the sample below to create the worker configuration and use the ARN to create connectors subsequently. 
 ```shell
 export worker_config_name=<<worker_config_name>>
@@ -66,9 +66,9 @@ aws ec2 describe-security-groups  --group-ids $msk_security_group \
 
 ```
 ## Create the connector JSON output, TLS No Auth
-1. Refer to the connector template [JSON no-auth connector tempalte](postgres/debezium-connector/templates/debezium-postgres-secret-manager-json-noauth.json) which generates JSON output and connects on MSK on TLS without authentication.
+1. Refer to the connector template [JSON no-auth connector tempalte](templates/debezium-postgres-secret-manager-json-noauth.json) which generates JSON output and connects on MSK on TLS without authentication.
 2. Update the configuration and use the config to create the connector. 
-3. The sample below uses the sample at [sample config](postgres/debezium-connector/samples/debezium-postgres-secret-manager-json-noauth.json) to generate the connector. 
+3. The sample below uses the sample at [sample config](samples/debezium-postgres-secret-manager-json-noauth.json) to generate the connector. 
 ```shell
 cd $source_root
 export connector_config_file=$source_root/debezium-connector/postgres/samples/debezium-postgres-secret-manager-json-noauth.json
@@ -77,9 +77,9 @@ export connector_config_file=$source_root/debezium-connector/postgres/samples/de
 ```
 
 ## Create the connector JSON output, IAM Auth
-1. Refer to the connector template [JSON IAM auth connector template](postgres/debezium-connector/templates/debezium-postgres-secret-manager-json-iam.json) which generates JSON output and connects on MSK on TLS without authentication.
+1. Refer to the connector template [JSON IAM auth connector template](templates/debezium-postgres-secret-manager-json-iam.json) which generates JSON output and connects on MSK on TLS without authentication.
 2. Update the configuration and use the config to create the connector.
-3. The sample below uses the sample at [sample config](postgres/debezium-connector/samples/debezium-postgres-secret-manager-json-iam.json) to generate the connector.
+3. The sample below uses the sample at [sample config](samples/debezium-postgres-secret-manager-json-iam.json) to generate the connector.
 ```shell
 cd $source_root
 export connector_config_file=$source_root/debezium-connector/postgres/samples/debezium-postgres-secret-manager-json-iam.json
@@ -149,9 +149,9 @@ echo $custom_plugin_arn
 ```
 ## Create the connector AVRO output, Glue Schema Registry, IAM Auth
 ## Create the connector AVRO output, Confluent Schema Registry, IAM Auth
-1. Refer to the connector template [AVRO IAM auth connector template](postgres/debezium-connector/templates/debezium-postgres-secret-manager-avro-iam.json) which generates AVRO output and connects on MSK on TLS with IAM.
+1. Refer to the connector template [AVRO IAM auth connector template](templates/debezium-postgres-secret-manager-avro-iam.json) which generates AVRO output and connects on MSK on TLS with IAM.
 2. Update the configuration and use the config to create the connector.
-3. The sample below uses the sample at [sample config](postgres/debezium-connector/samples/debezium-postgres-secret-manager-avro-iam.json) to generate the connector.
+3. The sample below uses the sample at [sample config](samples/debezium-postgres-secret-manager-avro-iam.json) to generate the connector.
 ```shell
 cd $source_root
 export connector_config_file=$source_root/debezium-connector/postgres/samples/debezium-postgres-secret-manager-avro-iam.json
