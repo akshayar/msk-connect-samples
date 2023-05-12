@@ -24,6 +24,8 @@ zip -Tvf debezium-connector-postgres-secret-manager-2.2.0.Final-plugin.zip
 ```shell
 export custom_plugin_name=<<<custom_plugin_name>>>
 export bucket_name=<<<bucket_name>>>
+```
+```shell
 aws s3 cp debezium-connector-postgres-secret-manager-2.2.0.Final-plugin.zip s3://${bucket_name}/msk-connect-plugin/
 cat << EOF > create-custom-plugin.json
 {
@@ -47,6 +49,8 @@ echo "Custom plugin ARN: ${custom_plugin_arn}"
 ```shell
 export worker_config_name=<<worker_config_name>>
 export worker_properties_file=$source_root/debezium-connector/postgres/templates/worker-configuration-secret-manager.properties
+```
+```shell
 cd $source_root
 ./create-worker-config.sh $worker_config_name $worker_properties_file 
 export worker_config_arn=`cat worker_config_arn.txt`
@@ -131,6 +135,9 @@ zip -Tvf debezium-connector-postgres-secret-manager-avro-confluent-2.2.0.Final-p
 ```shell
 export bucket_name=<<<bucket_name>>>
 export plugin_name=debezium-connector-postgres-secret-manager-avro-confluent-222
+
+```
+```shell
 aws s3 cp debezium-connector-postgres-secret-manager-avro-confluent-2.2.0.Final-plugin.zip s3://${bucket_name}/msk-connect-plugin/
 
 cat << EOF > create-custom-plugin.json
