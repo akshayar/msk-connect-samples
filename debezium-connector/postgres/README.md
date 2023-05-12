@@ -41,8 +41,8 @@ export custom_plugin_arn=$(aws kafkaconnect create-custom-plugin --cli-input-jso
 echo "Custom plugin ARN: ${custom_plugin_arn}"
 ```
 ## Create Worker Configuration
-1. Refer the worker configuraiton template at [Worker onfiguraiton Template](templates/worker-configuration-secret-manager.properties) which showcases secret manager config provider. Apart form that it uses default schema registery and AVRO converte which could be overwritten by connectors. 
-2. The worker configuration template at [Another worker configuration template](templates/worker-configuration.properties) shows how SSM can be used to read properties.
+1. Refer the worker configuraiton template at [worker configuraiton template](templates/worker-configuration-secret-manager.properties) which showcases secret manager config provider. Apart form that it uses default schema registery and AVRO converte which could be overwritten by connectors. 
+2. The worker configuration template at [SSM and secret manager configuration template](templates/worker-configuration.properties) shows how SSM can be used to read properties.
 3. Use the sample below to create the worker configuration and use the ARN to create connectors subsequently. 
 ```shell
 export worker_config_name=<<worker_config_name>>
