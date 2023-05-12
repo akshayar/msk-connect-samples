@@ -1,4 +1,4 @@
-# PostGreSQL Debezium Plugin with Secrets Manager Integration , JSON Output
+# PostgreSQL Debezium Plugin with Secrets Manager Integration , JSON Output
 ## Build the package for MSK Connect Plugin
 ```
 export source_root=`pwd`
@@ -109,6 +109,7 @@ zip -Tvf debezium-connector-postgres-2.2.0.Final-plugin.zip
 
 unzip debezium-connector-postgres-2.2.0.Final-plugin.zip
 cp msk-config-providers-0.2.0-SNAPSHOT-uber.jar debezium-connector-postgres/
+
 wget https://packages.confluent.io/maven/io/confluent/kafka-connect-avro-converter/6.1.9/kafka-connect-avro-converter-6.1.9.jar -P debezium-connector-postgres/
 wget https://packages.confluent.io/maven/io/confluent/kafka-connect-avro-data/6.1.9/kafka-connect-avro-data-6.1.9.jar -P debezium-connector-postgres/
 wget https://packages.confluent.io/maven/io/confluent/kafka-avro-serializer/6.1.9/kafka-avro-serializer-6.1.9.jar -P debezium-connector-postgres/
@@ -120,6 +121,7 @@ wget https://repo1.maven.org/maven2/org/apache/avro/avro/1.11.0/avro-1.11.0.jar 
 wget https://repo1.maven.org/maven2/com/google/guava/guava/31.1-jre/guava-31.1-jre.jar -P debezium-connector-postgres/
 wget https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.22.0/protobuf-java-3.22.0.jar  -P debezium-connector-postgres/
 wget https://repo1.maven.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar -P debezium-connector-postgres/
+
 zip -r debezium-connector-postgres-secret-manager-avro-confluent-2.2.0.Final-plugin.zip debezium-connector-postgres
 zip -Tvf debezium-connector-postgres-secret-manager-avro-confluent-2.2.0.Final-plugin.zip
 
