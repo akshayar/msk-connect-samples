@@ -70,12 +70,12 @@ aws ec2 describe-security-groups  --group-ids $msk_security_group \
 
 ```
 ## Create the connector JSON output, TLS No Auth
-1. Refer to the connector template [JSON no-auth connector tempalte](templates/debezium-postgres-secret-manager-json-noauth.json) which generates JSON output and connects on MSK on TLS without authentication.
+1. Refer to the connector template [JSON no-auth connector tempalte](templates/debezium-postgres-secret-manager-json-noauth-plaintext.json) which generates JSON output and connects on MSK on TLS without authentication.
 2. Update the configuration and use the config to create the connector. 
-3. The sample below uses the sample at [sample config](samples/debezium-postgres-secret-manager-json-noauth.json) to generate the connector. 
+3. The sample below uses the sample at [sample config](samples/debezium-postgres-secret-manager-json-noauth-plaintext.json) to generate the connector. 
 ```shell
 cd $source_root
-export connector_config_file=$source_root/debezium-connector/postgres/samples/debezium-postgres-secret-manager-json-noauth.json
+export connector_config_file=$source_root/debezium-connector/postgres/samples/debezium-mysql-secret-manager-json-noauth-plaintext.json
 ./create-connector.sh  ${connector_config_file} 
 
 ```
@@ -86,7 +86,7 @@ export connector_config_file=$source_root/debezium-connector/postgres/samples/de
 3. The sample below uses the sample at [sample config](samples/debezium-postgres-secret-manager-json-iam.json) to generate the connector.
 ```shell
 cd $source_root
-export connector_config_file=$source_root/debezium-connector/postgres/samples/debezium-postgres-secret-manager-json-iam.json
+export connector_config_file=$source_root/debezium-connector/postgres/samples/debezium-mysql-secret-manager-json-iam.json
 ./create-connector.sh  ${connector_config_file} 
 
 ```
@@ -163,7 +163,7 @@ echo $custom_plugin_arn
 3. The sample below uses the sample at [sample config](samples/debezium-postgres-secret-manager-avro-iam.json) to generate the connector.
 ```shell
 cd $source_root
-export connector_config_file=$source_root/debezium-connector/postgres/samples/debezium-postgres-secret-manager-avro-iam.json
+export connector_config_file=$source_root/debezium-connector/postgres/samples/debezium-mysql-secret-manager-avro-iam.json
 ./create-connector.sh  ${connector_config_file} 
 ```
 
